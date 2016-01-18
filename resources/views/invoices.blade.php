@@ -40,7 +40,7 @@
                                     <td>{{ $invoice->name }}</td>
                                     <td>{{ $invoice->created_at }}</td>
                                     <td>{{ $invoice->updated_at }}</td>
-                                    <td>{{ $invoice->totalAmmount }}</td>
+                                    <td>{{ $invoice->totalAmmount }} €</td>
                                 </tr>
                             @endforeach
                         </table>

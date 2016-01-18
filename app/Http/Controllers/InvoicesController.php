@@ -17,8 +17,10 @@ class InvoicesController extends Controller
 //
 //            return "Forbidden!";
 //        }
-        
-        $database_invoices = $this->getAllInvoicesFormDatabase();
+
+        $invoiceRepo = new InvoicesRepository();
+
+        $database_invoices = $invoiceRepo->getAllInvoicesFormDatabase();
 
         $invoices= $this->transform($database_invoices);
 
@@ -28,11 +30,7 @@ class InvoicesController extends Controller
 //        return view('invoices');
     }
 
-    public function getAllInvoicesFormDatabase()
-    {
-        return Invoices::all();
-        
-    }
+
 
     private function transform($database_invoices)
     {
