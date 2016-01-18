@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 class InvoicesController extends Controller
 {
 
-    protected $invoiceRepo;
+    protected $repo;
     protected $transformInvoice;
 
     /**
@@ -22,9 +22,9 @@ class InvoicesController extends Controller
      * @param InvoiceRepository $invoiceRepo
      * @param TransformerInvoice $transformerInvoice
      */
-    public function __construct(InvoiceRepository $invoiceRepo, TransformerInvoice $transformerInvoice)
+    public function __construct(InvoiceRepository $repo, TransformerInvoice $transformerInvoice)
     {
-        $this->invoiceRepo = $invoiceRepo;
+        $this->repo = $repo;
         $this->transformInvoice = $transformerInvoice;
     }
 
@@ -36,7 +36,7 @@ class InvoicesController extends Controller
 //        }
 
 
-        $database_invoices = $this ->invoiceRepo->getAllInvoicesFormDatabase();
+        $database_invoices = $this ->repo->getAllInvoicesFormDatabase();
 
         $invoices= $this->transformInvoice->transform($database_invoices);
 
