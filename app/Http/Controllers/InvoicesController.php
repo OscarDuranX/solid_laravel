@@ -11,6 +11,18 @@ class InvoicesController extends Controller
 {
     public function index()
     {
+        if ( !Auth::check() ) {
+
+            return "Forbidden";
+        }
+        
+        $invoices = $this->getAllInvoicesFormDatabase();
+
         return view('invoices');
+    }
+
+    public function getAllInvoicesFormDatabase()
+    {
+        
     }
 }
