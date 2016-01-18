@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Invoices;
+use App\Transformer\TransformerInvoice;
 use Illuminate\Http\Request;
 use App\Repositories\InvoiceRepository;
 
@@ -14,14 +15,17 @@ class InvoicesController extends Controller
 {
 
     protected $invoiceRepo;
+    protected $transformInvoice;
 
     /**
      * InvoicesController constructor.
-     * @param $invoiceRepo
+     * @param InvoiceRepository $invoiceRepo
+     * @param TransformerInvoice $transformerInvoice
      */
-    public function __construct(InvoiceRepository $invoiceRepo)
+    public function __construct(InvoiceRepository $invoiceRepo, TransformerInvoice $transformerInvoice)
     {
         $this->invoiceRepo = $invoiceRepo;
+        $this->transformInvoice = $transformerInvoice;
     }
 
     public function index()
@@ -34,7 +38,7 @@ class InvoicesController extends Controller
 
         $database_invoices = $this ->invoiceRepo->getAllInvoicesFormDatabase();
 
-        $invoices= $this->transform($database_invoices);
+        $invoices= $this->transformInvoice->transform($database_invoices);
 
         return view('invoices', compact('invoices'));
 
@@ -44,8 +48,5 @@ class InvoicesController extends Controller
 
 
 
-    private function transform($database_invoices)
-    {
-        return $database_invoices;
-    }
+
 }
