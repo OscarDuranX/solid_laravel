@@ -44,16 +44,11 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('sendContactEmail','ContactEmailController@send');
 
-    Route::get('/',['as' =>'welcome'],'WelcomeController@index');
+    Route::get('/',['as' =>'welcome',
+        'uses' => 'WelcomeController@index']);
 
 
 });
-
-
-
-Route::post('sendContactEmail','ContactEmailController@send');
-
-Route::get('/',['as' =>'welcome'],'WelcomeController@index');
 
 
 Route::group(['middleware' => ['auth']], function () {
