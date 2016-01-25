@@ -26,15 +26,12 @@ class InvoicesController extends Controller
     {
         $this->repo = $repo;
         $this->transformInvoice = $transformerInvoice;
+        $this->middleware('auth');
     }
+
 
     public function index()
     {
-//        if ( !Auth::check() ) {
-//
-//            return "Forbidden!";
-//        }
-
 
         $database_invoices = $this ->repo->getAllInvoicesFormDatabase();
 
