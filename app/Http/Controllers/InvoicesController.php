@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Invoices;
+use App\Repositories\RepositoryInterface;
+use App\Repositories\UserRepository;
 use App\Transformer\TransformerInvoice;
 use Illuminate\Http\Request;
 use App\Repositories\InvoiceRepository;
@@ -19,10 +21,11 @@ class InvoicesController extends Controller
 
     /**
      * InvoicesController constructor.
-     * @param InvoiceRepository $invoiceRepo
+     * @param RepositoryInterface $repo
      * @param TransformerInvoice $transformerInvoice
+     * @internal param InvoiceRepository $invoiceRepo
      */
-    public function __construct(InvoiceRepository $repo, TransformerInvoice $transformerInvoice)
+    public function __construct(RepositoryInterface $repo, TransformerInvoice $transformerInvoice)
     {
         $this->repo = $repo;
         $this->transformInvoice = $transformerInvoice;
@@ -33,14 +36,12 @@ class InvoicesController extends Controller
     public function index()
     {
 
-        $database_invoices = $this ->repo->getAllInvoicesFormDatabase();
+        $database_invoices = $this ->repo->all();
 
         $invoices= $this->transformInvoice->transform($database_invoices);
 
         return view('invoices', compact('invoices'));
 
-//        $data['invoices'] = $formatted_invoices;
-//        return view('invoices');
     }
 
 

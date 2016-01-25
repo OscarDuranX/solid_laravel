@@ -20,14 +20,10 @@ class InvoiceRepository implements RepositoryInterface
     /**
      * @return mixed
      */
-    public function getAllInvoicesFormDatabase()
-    {
-        return Invoices::all();
-
-    }
 
     public function all()
     {
+        return Invoices::all();
         // TODO: Implement all() method.
     }
 
