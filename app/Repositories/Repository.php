@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\App;
 use Mockery\CountValidator\Exception;
 
 
@@ -20,7 +21,7 @@ abstract class Repository implements RepositoryInterface
      * Type-Hinting
      *
      */
-    public function __construct( $model)
+    public function __construct()
     {
         $this->model = $this->makeModel();
     }
@@ -45,7 +46,7 @@ abstract class Repository implements RepositoryInterface
      */
     public function all()
     {
-        return $this->model::all();
+        return $this->model->all();
     }
 
     /**
