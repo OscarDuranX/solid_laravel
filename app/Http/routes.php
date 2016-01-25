@@ -36,15 +36,24 @@ App::bind(App\Repositories\RepositoryInterface::class,
 
 Route::group(['middleware' => ['web']], function () {
     Route::get('/invoices', 'InvoicesController@index');
+
     Route::auth();
+
     Route::get('/home', 'HomeController@index');
+
+
+    Route::post('sendContactEmail','ContactEmailController@send');
+
+    Route::get('/',['as' =>'welcome'],'WelcomeController@index');
+
+
 });
 
 
 
+Route::post('sendContactEmail','ContactEmailController@send');
 
-
-
+Route::get('/',['as' =>'welcome'],'WelcomeController@index');
 
 
 Route::group(['middleware' => ['auth']], function () {
