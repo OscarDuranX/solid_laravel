@@ -40,7 +40,7 @@ desired effect
         @include('layouts.partials.contentheader')
 
         <!-- Main content -->
-        <section class="content">
+        <section class="content" id="pjax-container">
             <!-- Your Page Content Here -->
             @yield('main-content')
         </section><!-- /.content -->
@@ -53,6 +53,7 @@ desired effect
 </div><!-- ./wrapper -->
 
 @include('layouts.partials.scripts')
+
 
 </body>
 </html>
