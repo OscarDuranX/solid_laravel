@@ -59,8 +59,14 @@ Route::group(['middleware' => ['web','pjax']], function () {
         return view('apartat3');
     });
 
+    Route::get('pricing', function(){
+        return view('pricing');
+    });
+
 
 });
+
+include "test-routes.php";
 
 
 Route::group(['middleware' => ['auth']], function () {

@@ -28,6 +28,7 @@ class SendSusbscriptionEmail extends Job implements ShouldQueue
      */
     public function handle()
     {
-        //
+        Mail::send('emails.remininder', ['user' => $this->user]);
+        sleep(10);
     }
 }
