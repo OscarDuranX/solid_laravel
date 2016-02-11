@@ -49,6 +49,29 @@
         background-color: #00AA00;
     }
 
+    .llista__header--color2{
+        background-color: #00a7d0;
+    }
+    .llista__boto--color2{
+        background-color: #00a7d0;
+    }
+
+    .llista__header--color3{
+        background-color: red;
+    }
+
+    .llista__boto--color3{
+        background-color: red;
+    }
+
+    .llista__header--color4{
+        background-color: #A901DB;
+    }
+
+    .llista__boto--color4{
+        background-color: #A901DB;
+    }
+
     .llista__preu{
         background-color: #7a869d;
         border: solid 2px red;
@@ -88,15 +111,45 @@
 
            </div>
            <div class="llista">
-               <div class="llista__header"> Cuota 2</div>
+               <div class="llista__header llista__header--color2"> Cuota 2</div>
+               <div class="llista__content">
+                   <ul class="llsita__list">
+                       <li>Pellentesque odio nisi, euismod in.</li>
+                       <li>Host multiple sites under one account.</li>
+                       <li>each with separate control panels.</li>
+                       <li>Starting at</li>
+                   </ul>
+               </div>
+               <div class="llista__preu">10€/mes</div>
+               <div class="llista__boto llista__boto--color2"> <i class="fa fa-credit-card"></i> Adquirir</div>
 
            </div>
            <div class="llista">
-               <div class="llista__header"> Cuota 3</div>
+               <div class="llista__header llista__header--color3"> Cuota 3</div>
+               <div class="llista__content">
+                   <ul class="llsita__list">
+                       <li>Pellentesque odio nisi, euismod in.</li>
+                       <li>Host multiple sites under one account.</li>
+                       <li>each with separate control panels.</li>
+                       <li>Starting at</li>
+                   </ul>
+               </div>
+               <div class="llista__preu">25€/mes</div>
+               <div class="llista__boto llista__boto--color3"> <i class="fa fa-credit-card"></i> Adquirir</div>
 
            </div>
            <div class="llista">
-               <div class="llista__header"> Cuota 4</div>
+               <div class="llista__header llista__header--color4"> Cuota 4</div>
+               <div class="llista__content">
+                   <ul class="llsita__list">
+                       <li>Pellentesque odio nisi, euismod in.</li>
+                       <li>Host multiple sites under one account.</li>
+                       <li>each with separate control panels.</li>
+                       <li>Starting at</li>
+                   </ul>
+               </div>
+               <div class="llista__preu">50€/mes</div>
+               <div class="llista__boto llista__boto--color4"> <i class="fa fa-credit-card"></i> Adquirir</div>
 
            </div>
         </div>
